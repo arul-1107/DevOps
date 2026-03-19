@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zoro - Final Boss</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: black;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* BACKGROUND SHADOW IMAGE */
+.bg {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: url('https://i.imgur.com/8Km9tLL.png') center/cover no-repeat;
+    opacity: 0.08;
+    filter: grayscale(100%) contrast(120%);
+    animation: zoom 20s infinite linear;
+}
+
+/* SLOW ZOOM */
+@keyframes zoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.2); }
+}
+
+/* AURA LAYERS */
+.glow-green, .glow-red {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(120px);
+}
+
+.glow-green {
+    background: rgba(0,255,120,0.25);
+    animation: heartbeat 2s infinite;
+}
+
+.glow-red {
+    background: rgba(255,0,0,0.15);
+    animation: heartbeat 2s infinite;
+    animation-delay: 1s;
+}
+
+/* HEARTBEAT EFFECT */
+@keyframes heartbeat {
+    0%,100% { transform: scale(1); opacity: 0.5; }
+    25% { transform: scale(1.2); opacity: 1; }
+    50% { transform: scale(1.1); }
+    75% { transform: scale(1.25); }
+}
+
+/* CONTAINER */
+.container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    animation: fadeUp 2s ease;
+}
+
+/* TITLE */
+h1 {
+    font-size: 3.5rem;
+    letter-spacing: 4px;
+    color: #00ff88;
+    text-shadow:
+        0 0 10px #00ff88,
+        0 0 30px #00ff88,
+        0 0 60px #00ff88;
+    margin-bottom: 20px;
+    animation: breathe 3s infinite;
+}
+
+@keyframes breathe {
+    0%,100% { letter-spacing: 4px; }
+    50% { letter-spacing: 8px; }
+}
+
+/* QUOTE */
+.quote {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    max-width: 750px;
+    color: #ddd;
+}
+
+/* HIGHLIGHT */
+.highlight {
+    color: #00ff88;
+    font-weight: bold;
+    text-shadow: 0 0 15px #00ff88;
+}
+
+.dead {
+    color: red;
+    font-weight: bold;
+    text-shadow: 0 0 15px red;
+}
+
+/* FADE */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* SLASH EFFECT */
+.slash {
+    position: absolute;
+    width: 3px;
+    height: 120%;
+    background: linear-gradient(transparent, #00ff88, transparent);
+    opacity: 0;
+    animation: slashMove 6s infinite;
+}
+
+@keyframes slashMove {
+    0% { transform: translateY(-120%); opacity: 0; }
+    40% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { transform: translateY(120%); opacity: 0; }
+}
+
+/* SERVER STATUS */
+.status {
+    margin-top: 25px;
+    color: #00ff88;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #00ff88;
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 20px;
+    color: #888;
+    letter-spacing: 2px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="glow-green"></div>
+<div class="glow-red"></div>
+
+<div class="slash"></div>
+
+<div class="container">
+    <h1>RORONOA ZORO</h1>
+
+    <div class="quote">
+        It’s okay to <span class="highlight">lose your way</span>…<br><br>
+        just don’t lose sight of what you have decided.<br><br>
+        <span class="dead">Because hesitation… is defeat.</span>
+    </div>
+
+    <div class="status">
+        ✔ Web Server Connected Successfully
+    </div>
+
+    <div class="footer">
+        ⚔️ King of Hell ⚔️
+    </div>
+</div>
+
+</body>
+</html>
